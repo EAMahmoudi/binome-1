@@ -9,6 +9,25 @@ class StringVide(error):
 class StringHelper:
     def __init__(self):
         return 0
+
+    def nb_occur(self, String, Mot):
+        c = 0
+        if len(String) == 0:
+            raise StringVide
+        list = StringHelper.fractionner(0, String, ' ')
+        for w in list:
+            if w == Mot:
+                c += 1
+        return c
+
+    def incr_char(self, String):
+        str = ""
+        for c in String:
+            if c.isalpha():
+                str += chr(ord(c) + 1)
+            else:
+                str += c
+        return str
     def Magiscule(self,String):
 
      cap = True
@@ -20,15 +39,8 @@ class StringHelper:
              cap = True
      return String
 
-     def nb_occur(String,Mot):
-         c=0
-         if len(String) == 0 :
-            raise StringVide
-         list = StringHelper.fractionner(0,String,' ')
-         for w in list :
-             if w==Mot:
-                 c += 1
-         return c
+
+
 
 
 class TP_Test(unittest.TestCase):
@@ -42,3 +54,8 @@ class TP_Test(unittest.TestCase):
         str2="Bonjour . Ce message a ete fais dans le but de tester la fonction . Enjoy it !"
         self.assertEqual(StringHelper.Magiscule(0,str1),str2)
 
+        str="asde poij"
+        str2="btef qpjk"
+        self.assertEqual(StringHelper.incr_char(0,str),str2)
+
+unittest.main()
