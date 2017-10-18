@@ -1,4 +1,11 @@
 import unittest
+class error(Exception):
+    pass
+
+class StringVide(error):
+    def __init__(self, expression, message):
+        self.expression = expression
+        self.message = message
 class StringHelper:
     def __init__(self):
         return 0
@@ -13,8 +20,22 @@ class StringHelper:
              cap = True
      return String
 
+     def nb_occur(String,Mot):
+         c=0
+         if len(String) == 0 :
+            raise StringVide
+         list = StringHelper.fractionner(0,String,' ')
+         for w in list :
+             if w==Mot:
+                 c += 1
+         return c
+
 
 class TP_Test(unittest.TestCase):
+
+    def test_nboc(self):
+        str=" penser a acheter 3 kilo pomme de tere , 2 kilo tomate et 1 kilo courgette ."
+        self.assertEqual(StringHelper.nb_occur(0,str,'kilo'),3)
 
     def test_Mag(self):
         str1="bonJour . ce Message a Ete fais dans le BUT de tester la fonction . Enjoy it !"
