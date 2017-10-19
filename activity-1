@@ -1,0 +1,8 @@
+class StringHelper:
+    def __init__(self):
+        return self
+    def Joindre(self,list,sp):
+        str =""
+        for l in list:
+            str += l +sp
+        return  str
