@@ -101,7 +101,6 @@ class StringHelper:
         :param String: chaine de caractere
         :return: la chaine String on suprimant les mot vide (et,ou,a,non)
         '''
-        v=" "
         list = StringHelper.fractionner(0, String, ' ')
         for x in ['ou', 'et', 'a', 'non']:
             if x in list:
