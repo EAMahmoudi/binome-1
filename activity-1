@@ -1,17 +1,30 @@
 import unittest
 import random
+
 class error(Exception):
     pass
 
 class StringVide(error):
+    '''
+       Class d'Exeption
+    '''
     def __init__(self, expression, message):
         self.expression = expression
         self.message = message
 class StringHelper:
+    '''
+       la class de TP
+    '''
     def __init__(self):
         return self
 
     def nb_occur(self, String, Mot):
+        '''
+          calcule de nombre d'ocurence du Mot dans String
+        :param String: la chaine de caractere
+        :param Mot: le mot
+        :return: le nombre d'ocurence du Mot dans string
+        '''
         c = 0
         if len(String) == 0:
             raise StringVide
@@ -22,6 +35,10 @@ class StringHelper:
         return c
 
     def incr_char(self, String):
+        '''
+        :param String: La chaine de caractere
+        :return: la chaine de caractere resultante apres l'incrementation de chaque caractere
+        '''
         str = ""
         for c in String:
             if c.isalpha():
@@ -31,7 +48,11 @@ class StringHelper:
         return str
 
     def Magiscule(self, String):
+        '''
 
+        :param String: La chaine de caractere
+        :return: le text on maittent le premier caractere de chaque phrase em MAJ et le rest en miniscule
+        '''
         cap = True
         for c, i in enumerate(String):
             if cap and String[c] != ' ':
@@ -41,6 +62,12 @@ class StringHelper:
                 cap = True
         return String
     def Joindre(self,list,sp):
+        '''
+
+        :param list: list de chaine de caractere
+        :param sp: le separateur
+        :return: la chaine de caractere construit avec les element de la list separer avec le sp
+        '''
         str =""
         for l in list:
             if l == list[-1]:
@@ -49,6 +76,11 @@ class StringHelper:
         return  str
 
     def fractionner(self, String, sp):
+        '''
+        :param String: la chaine de caractere
+        :param sp: le separateur
+        :return: une list des chaine deviser selon par le separateur
+        '''
         list = []
         i = 0
         j = 0
@@ -64,6 +96,12 @@ class StringHelper:
         return list
 
     def eleminermotvide(self, String):
+        '''
+
+        :param String: chaine de caractere
+        :return: la chaine String on suprimant les mot vide (et,ou,a,non)
+        '''
+        v=" "
         list = StringHelper.fractionner(0, String, ' ')
         for x in ['ou', 'et', 'a', 'non']:
             if x in list:
