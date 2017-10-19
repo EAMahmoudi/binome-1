@@ -1,8 +1,17 @@
+import unittest
+import random
 class StringHelper:
     def __init__(self):
         return self
     def Joindre(self,list,sp):
         str =""
         for l in list:
+            if l == list[-1]:
+                sp = ''
             str += l +sp
         return  str
+class TP_Test(unittest.TestCase):
+
+    def test_join(self):
+        list = ['rouge','vert','blanc']
+        self.assertEqual(StringHelper.Joindre(self,list,'-'),'rouge-vert-blanc')
